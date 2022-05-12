@@ -36,7 +36,7 @@ window.onload = () => init().catch((e) => console.error(e));
 
 async function init() {
   const board = generateBoard();
-  const kb = generateKeyboard();
+  const  = generateKeyboard();
 
   const words = (await dictionaryRequest).split("\n");
   const selwords = (await wordsRequest).split("\n");
