@@ -27,6 +27,7 @@ const PRETTY_KEYS = {
 const ROUNDS = 6;
 const LENGTH = 5;
 
+const wordsRequest = fetch("/dictionaries/xstarwake.txt").then((r) => r.text());
 const dictionaryRequest = fetch("/dictionaries/full.txt").then((r) => r.text());
 const board = $(".board");
 const keyboard = $(".keyboard");
@@ -39,8 +40,10 @@ async function init() {
 
   const words = (await dictionaryRequest).split("\n");
   const word = words[(Math.random() * words.length) | 0];
+  const selwords = (await wordsRequest).split("\n");
+  const selword = selwords[(Math.random() * selwords.length) | 0];
 
-  await startGame({ word, kb, board, words });
+  await startGame({ selword, kb, board, words });
 }
 
 async function animate(el, name, ms) {
