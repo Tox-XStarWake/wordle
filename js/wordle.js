@@ -39,11 +39,11 @@ async function init() {
   const kb = generateKeyboard();
 
   const words = (await dictionaryRequest).split("\n");
-  const word = words[(Math.random() * words.length) | 0];
   const selwords = (await wordsRequest).split("\n");
   const selword = selwords[(Math.random() * selwords.length) | 0];
+  const word = selword;
 
-  await startGame({ selword, kb, board, words });
+  await startGame({ word, kb, board, words });
 }
 
 async function animate(el, name, ms) {
